@@ -14,41 +14,38 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" tytpe="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="css/clean-blog.css" rel="stylesheet">
+    <link href="css/clean-blog.min.css" rel="stylesheet">
 
   </head>
 
-  <body style="background-color: #630620;">
+  <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Team KrAZ-E</a>
+        <a class="navbar-brand" href="index.html">Team KrAZ-E Girls Not Brides Awareness</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
+          Home
           <i class="fa fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive" style="color: white;">
+        <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
               <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="game.js">Game</a>
+              <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="post.html">Articles</a>
+              <a class="nav-link" href="post.html">Sample Post</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="other.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Donate</a>
+              <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -56,14 +53,14 @@
     </nav>
 
     <!-- Page Header -->
-    <header class="masthead" style="background-image: url('card_600_1435145472.jpg')">
+    <header class="masthead" style="background-image: url('img/contact-bg.jpg')">
       <div class="overlay"></div>
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="site-heading">
-              <h1>Girls Not Brides</h1>
-              <span class="subheading">Helping to bring awareness for girls in need</span>
+            <div class="page-heading">
+              <h1>Donate</h1>
+              <span class="subheading">Child Marriages need to stop!</span>
             </div>
           </div>
         </div>
@@ -74,18 +71,48 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-preview">
-              <h3 class="post-subtitle" style="color: white;">
-                Despite attempts by India’s officials and authorities to outlaw child marriage and relations with child brides, child marriage still goes on. India’s efforts to decrease rates of child marriage have had only little effect. If we don’t hurry to bring down adolescent marriage in India, the impact could have drastic effect by 2050. The majority of young girls who are married are under the age of 15, the main reason being having a weak economic status. This website aims to help raise money to help prevent more marriages like this from happening and secure a girl’s chance of living a happy life.              </h3>
-              <br>
-              <h1 class="post-title" style="color: white;"><b><i><center><ins>Statistics</ins></center><i><b></h1>
-              <img src="image.png" style="width:725px;">
-              <img src="dataGNB.png" style="width: 725px;">
-          </div>
+          <p>Want to help put an end to young marriages? You can donate now by clicking on the link down below to donate.</p>
+          <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+          <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+          <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+          <form name="sentMessage" id="contactForm" novalidate>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+
+
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+
+
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+
+                <p class="help-block text-danger"></p>
+              </div>
+            </div>
+            <br>
+            <div id="success"></div>
+            <div class="form-group">
+
+            </div>
+          </form>
         </div>
       </div>
     </div>
 
+    <hr>
 
     <!-- Footer -->
     <footer>
@@ -118,7 +145,7 @@
                 </a>
               </li>
             </ul>
-            <p class="copyright text-muted">Copyright &copy; Your Website 2018</p>
+            <p class="copyright text-muted">Copyright &copy; Girls Not Brides Awareness 2018</p>
           </div>
         </div>
       </div>
@@ -127,6 +154,10 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
 
     <!-- Custom scripts for this template -->
     <script src="js/clean-blog.min.js"></script>
