@@ -1,80 +1,62 @@
-function startGame() {
-    myGamePiece = new component(30, 30, "red", 10, 120);
-    myGamePiece.gravity = 0.05;
-    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
-    myGameArea.start();
-}
-var myGamePiece;
-var myGameArea = {
-    canvas : document.createElement("canvas"),
-    start : function() {
-        this.canvas.width = 480;
-        this.canvas.height = 270;
-        this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
-        this.interval = setInterval(updateGameArea, 20);
+(function createQuestions(){
+  var questions = [
+    {
+      "question": "What amount of people are you comfortable around?",
+      "name": "people",
+      "answers" : {
+        "Lots of people": 5,
+        "A small group": 3,
+        "By myself": 1
+      }
     },
-    clear : function() {
-        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    {
+      "question": "How long is your attention span?",
+      "name": "attention",
+      "answers" : {
+        "I can stay focused for a long time": 5,
+        "Only for a couple of hours": 3,
+        "Not long at all": 1
+      }
+    },
+    {
+      "question": "What type of characters do you like?",
+      "name": "character",
+      "answers" : {
+        "All kinds": 5,
+        "Humans": 3,
+        "Robots/Aliens": 1
+      }
     }
-}
-function component(width, height, color, x, y) {
-    this.width = width;
-    this.height = height;
-    this.x = x;
-    this.y = y;
-    ctx = myGameArea.context;
-    ctx.fillStyle = color;
-    ctx.fillRect(this.x, this.y, this.width, this.height);
-function updateGameArea() {
-    myGameArea.clear();
-    myGamePiece.x += 1;
-    myGamePiece.update();
+  ];
+  var html = "";
+  for (var i = 0; i < questions.length; i++){
+    html += questions[i]["question"] + "<br>";
+    for (var key in questions[i]["answers"]){
+      html += '<input type="radio" name="' + questions[i]["name"] + '" value="';
+      html += questions[i]["answers"][key] + '">' + key + "<br>";
+    }
   }
-  <script>
-  function component(width, height, color, x, y) {
-      this.width = width;
-      this.height = height;
-      this.speedX = 0;
-      this.speedY = 0;
-      this.x = x;
-      this.y = y;
-      this.update = function() {
-          ctx = myGameArea.context;
-          ctx.fillStyle = color;
-          ctx.fillRect(this.x, this.y, this.width, this.height);
+  document.getElementById("quiz").innerHTML = html;
+})();
+
+function submitAnswer(){
+  var total = 0;
+  var categories = ["people","attention","character"];
+  for (var x= 0; x < categories.length; x++){
+    var choice = document.getElementsByName(categories[x]);
+    for (var j=0; j < choice.length; j++){
+      if(choice[j].checked){
+        total += parseInt(choice[j].value);
       }
-      this.newPos = function() {
-          this.x += this.speedX;
-          this.y += this.speedY;
-      }
+    }
   }
-
-  function updateGameArea() {
-      myGameArea.clear();
-      myGamePiece.newPos();
-      myGamePiece.update();
+  var game;
+  if (total < 5){
+    game = "Hearthstone"
+  } else if (total < 10){
+    game = "Overwatch"
+  } else {
+    game = "World of Warcraft"
   }
-
-  function moveup() {
-      myGamePiece.speedY -= 1;
+  document.getElementById("results").innerHTML = game;
   }
-
-  function movedown() {
-      myGamePiece.speedY += 1;
-  }
-
-  function moveleft() {
-      myGamePiece.speedX -= 1;
-  }
-
-  function moveright() {
-      myGamePiece.speedX += 1;
-  }
-  </script>
-
-  <button onclick="moveup()">UP</button>
-  <button onclick="movedown()">DOWN</button>
-  <button onclick="moveleft()">LEFT</button>
-  <button onclick="moveright()">RIGHT</button>
-startGame()
