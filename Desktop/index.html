@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <link rel="stylesheet" href="css/chartist.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script src="js/chartist.js"></script>
+    <title>Girls Not Brides Awareness</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.css" rel="stylesheet">
+
+  </head>
+
+  <body style="background-color: #630620;">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Team KrAZ-E</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive" style="color: white;">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">Simulation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="post.html">Articles</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="other.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Donate</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('card_600_1435145472.jpg')">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="site-heading">
+              <h1>Girls Not Brides</h1>
+              <span class="subheading">Helping to bring awareness for girls in need</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-preview">
+              <h3 class="post-subtitle" style="color: white;">
+                Despite attempts by India’s officials and authorities to outlaw child marriage and relations with child brides, child marriage still goes on. India’s efforts to decrease rates of child marriage have had only little effect. If we don’t hurry to bring down adolescent marriage, the impact could have drastic effect by 2050. The majority of young girls who are married are under the age of 15, the main reason being having a weak economic status. This website aims to help raise money to help prevent more marriages like this from happening and secure a girl’s chance of living a happy life.              </h3>
+              <br>
+              <h1 class="post-title" style="color: white;"><b><i><center><ins>Statistics</ins></center><i><b></h1>
+            <!-- <img src="image.png" style="width:725px;"> -->
+
+              <h4 class="post-title" style="color: white";><center>Almost half of all child brides worldwide live in South Asia;<br> 1 in 3 are in India<center></h4>
+              <center><p class="post-subtitle" style="color: white;">Percentage distribution of women aged 18 years and older who were married or in union before age 18 by region from a survey taken in 2013</p></center>
+              <div class="ct-chart ct-perfect-fourth" id= chart1></div>
+              <script>
+              var chart = new Chartist.Pie('#chart1', {
+  series: [42, 9,13, 5, 4, 25, 2],
+  labels: ["India/South Asia 42%","Latin America 9%","Africa 13%","Middle East 5%","Europe 4%","East Asia 25%","Industrialized Countries 2%"]
+}, {
+  donut: true,
+  showLabel: true
+});
+chart.on('draw', function(data) {
+  if(data.type === 'slice') {
+    // Get the total path length in order to use for dash array animation
+    var pathLength = data.element._node.getTotalLength();
+    // Set a dasharray that matches the path length as prerequisite to animate dashoffset
+    data.element.attr({
+      'stroke-dasharray': pathLength + 'px ' + pathLength + 'px'
+    });
+    // Create animation definition while also assigning an ID to the animation for later sync usage
+    var animationDefinition = {
+      'stroke-dashoffset': {
+        id: 'anim' + data.index,
+        dur: 1000,
+        from: -pathLength + 'px',
+        to:  '0px',
+        easing: Chartist.Svg.Easing.easeOutQuint,
+        // We need to use `fill: 'freeze'` otherwise our animation will fall back to initial (not visible)
+        fill: 'freeze'
+      }
+    };
+    // If this was not the first slice, we need to time the animation so that it uses the end sync event of the previous animation
+    if(data.index !== 0) {
+      animationDefinition['stroke-dashoffset'].begin = 'anim' + (data.index - 1) + '.end';
+    }
+    // We need to set an initial value before the animation starts as we are not in guided mode which would do that for us
+    data.element.attr({
+      'stroke-dashoffset': -pathLength + 'px'
+    });
+    // We can't use guided mode as the animations need to rely on setting begin manually
+    // See http://gionkunz.github.io/chartist-js/api-documentation.html#chartistsvg-function-animate
+    data.element.animate(animationDefinition, false);
+  }
+});
+// For the sake of the example we update the chart every time it's created with a delay of 8 seconds
+chart.on('created', function() {
+  if(window.__anim21278907124) {
+    clearTimeout(window.__anim21278907124);
+    window.__anim21278907124 = null;
+  }
+  window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
+});
+</script>
+<br>
+<h4 class="post-title" style="color: white";><center>The 10 Countries with the Highest Rates of Child Marriage<center></h4>
+<center><p class="post-subtitle" style="color: white;">Percentage of women aged 20 to 49 years who were married or in union before ages 15 and 18, in the 10 countries with the highest prevalence of child marriage </p></center>
+
+<div class="ct-chart ct-perfect-fourth" id= chart2></div>
+<script>
+new Chartist.Bar('#chart2', {
+  labels: ['Nepal', 'Burkina Faso', 'Ethiopia', 'Guinea', 'India','Central African Republic', 'Mali', 'Chad', "Bangladesh", 'Niger'],
+  series: [
+    [15, 9, 27, 25, 27, 23, 14, 30, 39, 29],
+    [37, 43, 31, 33, 31, 37, 47, 39, 35, 48],
+  ]
+}, {
+  stackBars: true,
+  axisY: {
+    labelInterpolationFnc: function(value) {
+      return(value)
+    }
+  }
+})
+.on('draw', function (data) {
+    if (data.type === 'bar') {
+        data.element.attr({
+            style: 'stroke-width: 0px'
+        });
+        var strokeWidth = 10;
+
+        if (data.seriesIndex === 0) {
+            data.element.animate({
+                y2: {
+                    begin: 0,
+                    dur: 500,
+                    from: data.y1,
+                    to: data.y2,
+                    easing: Chartist.Svg.Easing.easeOutSine,
+                },
+                'stroke-width': {
+                    begin: 0,
+                    dur: 1,
+                    from: 1,
+                    to: strokeWidth,
+                    fill: 'freeze',
+                }
+            }, false);
+        }
+
+        if (data.seriesIndex === 1) {
+            data.element.animate({
+                y2: {
+                    begin: 500,
+                    dur: 500,
+                    from: data.y1,
+                    to: data.y2,
+                    easing: Chartist.Svg.Easing.easeOutSine,
+                },
+                'stroke-width': {
+                    begin: 500,
+                    dur: 1,
+                    from: 0,
+                    to: strokeWidth,
+                    fill: 'freeze',
+                }
+            }, false);
+        }
+    }
+});
+chart.on('created', function() {
+  if(window.chart2) {
+    clearTimeout(window.chart2);
+    window.chart2 = null;
+  }
+  window.chart2 = setTimeout(chart.update.bind(chart), 10000);
+});
+</script>
+<p class="post-subtitle" style="color: white;"> The dark red = "Girls married before the age of 15" <br> The light red = "Girls married after the age of 15 but before the age of 18"
+<br>
+<h2 class="post-title" style="color: white";><center><ins>Videos</ins></center></h2>
+
+<br><iframe width="750" height="531" src="https://www.youtube.com/embed/aUehNPRin5o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p class="post-subtitle" style="color: white;">In February 2016, the Girls Not Brides team headed out to Zambia to film “We are Girls, Not Brides”, a two-minute music video about ending child marriage. The song was written, composed and sung by a group of talented young girls from Lusaka Girls School, who take part in a girls’ empowerment club run by Girls Not Brides member Continuity Zambia. </p>
+<br><iframe width="750" height="531" src="https://www.youtube.com/embed/7c_zppPutQw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<p class="post-subtitle" style="color: white;">Photographer Stephanie Sinclair and writer Cynthia Gorney investigate the world of prearranged child marriage, where girls as young as five are forced to wed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; KrAZ-E 2018</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+  </body>
+
+</html>
