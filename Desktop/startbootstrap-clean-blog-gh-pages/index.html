@@ -81,33 +81,6 @@
               <h1 class="post-title" style="color: white;"><b><i><center><ins>Statistics</ins></center><i><b></h1>
             <!-- <img src="image.png" style="width:725px;"> -->
 
-            <script>
-            new Chartist.Bar('.ct-chart', {
-  labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-  series: [
-    [800000, 1200000, 1400000, 1300000],
-    [200000, 400000, 500000, 300000],
-    [100000, 200000, 400000, 600000]
-  ]
-}, {
-  stackBars: true,
-  axisY: {
-    labelInterpolationFnc: function(value) {
-      return (value / 1000) + 'k';
-    }
-  }
-}).on('draw', function(data) {
-  if(data.type === 'bar') {
-    data.element.attr({
-      style: 'stroke-width: 30px'
-    });
-  }
-});
-</script>
-
-
-
-
               <h4 class="post-title" style="color: white";><center>Almost half of all child brides worldwide live in South Asia;<br> 1 in 3 are in India<center></h4>
               <center><p class="post-subtitle" style="color: white;">Percentage distribution of women aged 18 years and older who were married or in union before age 18 by region from a survey taken in 2013</p></center>
               <div class="ct-chart ct-perfect-fourth"></div>
