@@ -144,7 +144,7 @@ new Chartist.Bar('#chart2', {
   labels: ['Nepal', 'Burkina Faso', 'Ethiopia', 'Guinea', 'India','Central African Republic', 'Mali', 'Chad', "Bangladesh", 'Niger'],
   series: [
     [15, 9, 27, 25, 27, 23, 14, 30, 39, 29],
-    [52, 52, 58, 58, 58, 60, 61, 69, 74, 77],
+    [37, 43, 31, 33, 31, 37, 47, 39, 35, 48],
   ]
 }, {
   stackBars: true,
@@ -153,12 +153,59 @@ new Chartist.Bar('#chart2', {
       return(value)
     }
   }
-}).on('draw', function(data) {
-  if(data.type === 'bar') {
-    data.element.attr({
-      style: 'stroke-width: 30px'
-    });
+})
+.on('draw', function (data) {
+    if (data.type === 'bar') {
+        data.element.attr({
+            style: 'stroke-width: 0px'
+        });
+        var strokeWidth = 10;
+
+        if (data.seriesIndex === 0) {
+            data.element.animate({
+                y2: {
+                    begin: 0,
+                    dur: 500,
+                    from: data.y1,
+                    to: data.y2,
+                    easing: Chartist.Svg.Easing.easeOutSine,
+                },
+                'stroke-width': {
+                    begin: 0,
+                    dur: 1,
+                    from: 1,
+                    to: strokeWidth,
+                    fill: 'freeze',
+                }
+            }, false);
+        }
+
+        if (data.seriesIndex === 1) {
+            data.element.animate({
+                y2: {
+                    begin: 500,
+                    dur: 500,
+                    from: data.y1,
+                    to: data.y2,
+                    easing: Chartist.Svg.Easing.easeOutSine,
+                },
+                'stroke-width': {
+                    begin: 500,
+                    dur: 1,
+                    from: 0,
+                    to: strokeWidth,
+                    fill: 'freeze',
+                }
+            }, false);
+        }
+    }
+});
+chart.on('created', function() {
+  if(window.chart2) {
+    clearTimeout(window.chart2);
+    window.chart2 = null;
   }
+  window.chart2 = setTimeout(chart.update.bind(chart), 10000);
 });
 </script>
 <p class="post-subtitle" style="color: white;"> The dark red = "Girls married before the age of 15" <br> The light red = "Girls married after the age of 15 but before the age of 18"
