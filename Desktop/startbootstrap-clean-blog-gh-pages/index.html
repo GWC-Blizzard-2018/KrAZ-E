@@ -83,11 +83,11 @@
 
               <h4 class="post-title" style="color: white";><center>Almost half of all child brides worldwide live in South Asia;<br> 1 in 3 are in India<center></h4>
               <center><p class="post-subtitle" style="color: white;">Percentage distribution of women aged 18 years and older who were married or in union before age 18 by region from a survey taken in 2013</p></center>
-              <div class="ct-chart ct-perfect-fourth"></div>
+              <div class="ct-chart ct-perfect-fourth" id= chart1></div>
               <script>
-              var chart = new Chartist.Pie('.ct-chart', {
+              var chart = new Chartist.Pie('#chart1', {
   series: [42, 9,13, 5, 4, 25, 2],
-  labels: ["India/South Asia","Latin America","Africa","Middle East","Europe","East Asia","Industrialized Countries"]
+  labels: ["India/South Asia 42%","Latin America 9%","Africa 13%","Middle East 5%","Europe 4%","East Asia 25%","Industrialized Countries 2%"]
 }, {
   donut: true,
   showLabel: true
@@ -141,6 +141,35 @@ chart.on('created', function() {
   window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
 });
 </script>
+<br>
+<h4 class="post-title" style="color: white";><center>The 10 Countries with the Highest Rates of Child Marriage<center></h4>
+<center><p class="post-subtitle" style="color: white;">Percentage of women aged 20 to 49 years who were married or in union before ages 15 and 18, in the 10 countries with the highest prevalence of child marriage </p></center>
+
+<div class="ct-chart ct-perfect-fourth" id= chart2></div>
+<script>
+
+new Chartist.Bar('#chart2', {
+  labels: ['Nepal', 'Burkina Faso', 'Ethiopia', 'Guinea', 'India','Central African Republic', 'Mali', 'Chad', "Bangladesh", 'Niger'],
+  series: [
+    [15, 9, 27, 25, 27, 23, 14, 30, 39, 29],
+    [52, 52, 58, 58, 58, 60, 61, 69, 74, 77],
+  ]
+}, {
+  stackBars: true,
+  axisY: {
+    labelInterpolationFnc: function(value) {
+      return(value)
+    }
+  }
+}).on('draw', function(data) {
+  if(data.type === 'bar') {
+    data.element.attr({
+      style: 'stroke-width: 30px'
+    });
+  }
+});
+</script>
+<p class="post-subtitle" style="color: white;"> The dark red is "Girls married before the age of 15" <br> The light red is "Girls married after the age of 15 but before the age of 18"
           </div>
         </div>
       </div>
