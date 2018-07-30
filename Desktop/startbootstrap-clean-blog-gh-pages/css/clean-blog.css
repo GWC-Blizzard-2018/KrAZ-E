@@ -43,6 +43,38 @@ blockquote {
   font-style: italic;
   color: #868e96;
 }
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor:pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.popup .popuptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: transparent;
+  color: #fff;
+  font-style: oblique;
+  text-align: center;
+  border-radius: 6px;
+  padding: 20px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: 1200px;
+  margin-bottom: 180px;
+}
+
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s, fadeOut 1s 2.5s;
+  animation: fadeIn 1s, fadeOut 1s 2.5s;
+}
 
 .section-heading {
   font-size: 36px;
