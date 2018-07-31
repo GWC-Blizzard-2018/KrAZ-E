@@ -68,9 +68,6 @@
           </div>
         </div>
       </div>
-      <div class="popup">
-        <span class="popuptext" id="myPopup"><h2>Test out the Simulation</h2></span>
-      </div>
     </header>
 
     <!-- Main Content -->
@@ -79,45 +76,18 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-preview">
               <h3 class="post-subtitle" style="color: white;">
-                Despite attempts by India’s officials and authorities to outlaw child marriage and relations with child brides, child marriage still goes on. India’s efforts to decrease rates of child marriage have had only little effect. If we don’t hurry to bring down adolescent marriage in India, the impact could have drastic effect by 2050. The majority of young girls who are married are under the age of 15, the main reason being having a weak economic status. This website aims to help raise money to help prevent more marriages like this from happening and secure a girl’s chance of living a happy life.              </h3>
+                Despite attempts by India’s officials and authorities to outlaw child marriage and relations with child brides, child marriage still goes on. India’s efforts to decrease rates of child marriage have had only little effect. If we don’t hurry to bring down adolescent marriage, the impact could have drastic effect by 2050. The majority of young girls who are married are under the age of 15, the main reason being having a weak economic status. This website aims to help raise money to help prevent more marriages like this from happening and secure a girl’s chance of living a happy life.              </h3>
               <br>
               <h1 class="post-title" style="color: white;"><b><i><center><ins>Statistics</ins></center><i><b></h1>
             <!-- <img src="image.png" style="width:725px;"> -->
 
-            <script>
-            new Chartist.Bar('.ct-chart', {
-  labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-  series: [
-    [800000, 1200000, 1400000, 1300000],
-    [200000, 400000, 500000, 300000],
-    [100000, 200000, 400000, 600000]
-  ]
-}, {
-  stackBars: true,
-  axisY: {
-    labelInterpolationFnc: function(value) {
-      return (value / 1000) + 'k';
-    }
-  }
-}).on('draw', function(data) {
-  if(data.type === 'bar') {
-    data.element.attr({
-      style: 'stroke-width: 30px'
-    });
-  }
-});
-</script>
-
-
-
-
               <h4 class="post-title" style="color: white";><center>Almost half of all child brides worldwide live in South Asia;<br> 1 in 3 are in India<center></h4>
               <center><p class="post-subtitle" style="color: white;">Percentage distribution of women aged 18 years and older who were married or in union before age 18 by region from a survey taken in 2013</p></center>
-              <div class="ct-chart ct-perfect-fourth"></div>
+              <div class="ct-chart ct-perfect-fourth" id= chart1></div>
               <script>
-              var chart = new Chartist.Pie('.ct-chart', {
+              var chart = new Chartist.Pie('#chart1', {
   series: [42, 9,13, 5, 4, 25, 2],
-  labels: ["India/South Asia","Latin America","Africa","Middle East","Europe","East Asia","Industrialized Countries"]
+  labels: ["India/South Asia 42%","Latin America 9%","Africa 13%","Middle East 5%","Europe 4%","East Asia 25%","Industrialized Countries 2%"]
 }, {
   donut: true,
   showLabel: true
@@ -164,6 +134,34 @@ chart.on('created', function() {
   window.__anim21278907124 = setTimeout(chart.update.bind(chart), 10000);
 });
 </script>
+<br>
+<h4 class="post-title" style="color: white";><center>The 10 Countries with the Highest Rates of Child Marriage<center></h4>
+<center><p class="post-subtitle" style="color: white;">Percentage of women aged 20 to 49 years who were married or in union before ages 15 and 18, in the 10 countries with the highest prevalence of child marriage </p></center>
+
+<div class="ct-chart ct-perfect-fourth" id= chart2></div>
+<script>
+new Chartist.Bar('#chart2', {
+  labels: ['Nepal', 'Burkina Faso', 'Ethiopia', 'Guinea', 'India','Central African Republic', 'Mali', 'Chad', "Bangladesh", 'Niger'],
+  series: [
+    [15, 9, 27, 25, 27, 23, 14, 30, 39, 29],
+    [52, 52, 58, 58, 58, 60, 61, 69, 74, 77],
+  ]
+}, {
+  stackBars: true,
+  axisY: {
+    labelInterpolationFnc: function(value) {
+      return(value)
+    }
+  }
+}).on('draw', function(data) {
+  if(data.type === 'bar') {
+    data.element.attr({
+      style: 'stroke-width: 30px'
+    });
+  }
+});
+</script>
+<p class="post-subtitle" style="color: white;"> The dark red = "Girls married before the age of 15" <br> The light red = "Girls married after the age of 15 but before the age of 18"
           </div>
         </div>
       </div>
@@ -212,7 +210,7 @@ chart.on('created', function() {
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/clean-blog.js"></script>
+    <script src="js/clean-blog.min.js"></script>
 
   </body>
 
