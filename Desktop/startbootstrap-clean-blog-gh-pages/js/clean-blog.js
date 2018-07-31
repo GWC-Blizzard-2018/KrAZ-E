@@ -37,9 +37,9 @@
         this.previousTop = currentTop;
       });
   }
+
   document.addEventListener("DOMContentLoaded", function() {
     var x = document.getElementById("myPopup");
     x.classList.toggle("show");
-    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 10000);
-  }, false);
+
 })(jQuery); // End of use strict
